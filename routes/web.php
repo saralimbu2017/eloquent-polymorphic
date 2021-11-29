@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Staff;
+use App\Models\Photo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+//ROute for insert operation
+Route::get('/insert',function(){
+    $staff = Staff::find(1);
+    $staff->photos()->create(['path'=>'sara.jpg']);
 });
