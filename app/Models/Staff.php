@@ -10,6 +10,6 @@ class Staff extends Model
     use HasFactory;
 
     public function photos(){
-        return $this->morphMany('App\Models\Photo');
+        return $this->morphMany('App\Models\Photo','imageable');
     }
 }
