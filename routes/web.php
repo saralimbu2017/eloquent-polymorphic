@@ -32,4 +32,11 @@ Route::get('/read',function(){
     }
 });
 
+//Route for update operation
+Route::get('/update',function(){
+    $staff = Staff::findOrFail(1);
+    $photo = $staff->photos()->whereId(1)->first();
+    $photo->path = "Updated Path";
+    $photo->save();   
+});
 
