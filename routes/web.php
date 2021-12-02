@@ -18,8 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//ROute for insert operation
+//Route for insert operation
 Route::get('/insert',function(){
     $staff = Staff::find(1);
     $staff->photos()->create(['path'=>'sara.jpg']);
 });
+
+//Route for read operation
+Route::get('/read',function(){
+    $staff = Staff::findOrFail(1);
+    foreach($staff->photos as $photo){
+        return $photo->path;
+    }
+});
+
+
