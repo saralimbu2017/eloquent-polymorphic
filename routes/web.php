@@ -40,3 +40,9 @@ Route::get('/update',function(){
     $photo->save();   
 });
 
+//Route for delete operation
+Route::get('/delete',function(){
+    $staff = Staff::find(1);
+    $staff->photos()->delete();
+});
+
